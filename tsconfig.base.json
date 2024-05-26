@@ -13,8 +13,14 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "composite": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@medsen/config": ["config/src/index.ts"],
+      "@medsen/database": ["database/src/index.ts"],
+      "@medsen/logger": ["logger/src/index.ts"],
+      "@medsen/shared": ["shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

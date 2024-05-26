@@ -2,16 +2,36 @@
   "name": "@medsen/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "typeorm": "ts-node --project ./tsconfig.base.json ./node_modules/typeorm/cli",
+    "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./database/src/db/portal/datasource/index.ts",
+    "typeorm:generate-migration": "npm run typeorm -- -d ./database/src/db/portal/datasource/index.ts migration:generate ./database/src/db/portal/migrations/$npm_config_name",
+    "typeorm:create-migration": "npm run typeorm -- migration:create ./database/src/db/portal/migrations/$npm_config_name",
+    "typeorm:revert-migration": "npm run typeorm -- -d ./database/src/db/portal/datasource/index.ts migration:revert"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
+    "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.2",
+    "@nestjs/microservices": "^10.3.8",
     "@nestjs/platform-express": "^10.0.2",
+    "@nestjs/swagger": "^7.3.1",
+    "@nestjs/typeorm": "^10.0.2",
     "axios": "^1.6.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "cookie-parser": "^1.4.6",
+    "install": "^0.13.0",
+    "nestjs-pino": "^4.1.0",
+    "npm": "^10.8.0",
+    "pg": "^8.11.5",
+    "pino-http": "^10.1.0",
+    "pino-pretty": "^11.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@nestjs/schematics": "^10.0.1",
